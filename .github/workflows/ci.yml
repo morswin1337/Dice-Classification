@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main  # lub inne gałęzie, na których chcesz uruchamiać CI
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  
+
+    - name: Download dataset from release
+      run: |
+        curl -L -o dice.csv https://github.com/morswin1337/Dice-Classification/releases/download/v1.0/dice.csv
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy matplotlib gradio torch torchvision
+
+    - name: Run training script
+      run: |
+        python Run_Gradio.py
+
+    - name: Build Docker image
+      run: |
+        docker build -t my_image_tag .
