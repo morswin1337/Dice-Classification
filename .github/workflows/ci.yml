@@ -3,14 +3,14 @@ name: CI
 on:
   push:
     branches:
-      - main  # lub inne gałęzie, na których chcesz uruchamiać CI
+      - main
   pull_request:
     branches:
       - main
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
@@ -36,4 +36,4 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t bitnami/pytorch .
+        docker build -t pytorch/pytorch .
