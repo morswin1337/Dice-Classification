@@ -21,8 +21,8 @@ jobs:
 
     - name: Pull Docker image
       run: |
-        docker pull my_image_tag
+        docker pull bitnami/pytorch:latest
 
     - name: Run Docker container
       run: |
-        docker run -d -p 7860:7860 my_image_tag
+        docker run -d -p 7860:7860 bitnami/pytorch:latest
