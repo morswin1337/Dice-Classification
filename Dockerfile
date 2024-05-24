@@ -1,5 +1,5 @@
 # Użyj obrazu bazowego PyTorch
-FROM bitnami/pytorch:latest
+FROM pytorch/pytorch:latest
 
 # Skopiuj kod aplikacji do kontenera
 COPY Run_Gradio.py /app
