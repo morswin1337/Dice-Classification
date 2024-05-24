@@ -5,9 +5,6 @@ FROM pytorch/pytorch:latest
 COPY Run_Gradio.py /app
 COPY dice_cnn.pth /app
 
-# Ustaw katalog roboczy
-WORKDIR /app
-
 # Instalacja zależności Pythona
 RUN pip install pandas numpy matplotlib gradio
 
