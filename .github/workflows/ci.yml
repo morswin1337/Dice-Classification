@@ -29,10 +29,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pandas numpy matplotlib gradio torch torchvision
-
-    - name: Run training script
-      run: |
-        python Run_Gradio.py
+#
+#    - name: Run training script
+#      run: |
+#        python Run_Gradio.py
 
     - name: Build Docker image
       run: |
